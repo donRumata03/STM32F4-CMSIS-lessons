@@ -1,0 +1,17 @@
+.\objects\my_exti.o: My_EXTI.c
+.\objects\my_exti.o: My_EXTI.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h
+.\objects\my_exti.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv7.h
+.\objects\my_exti.o: C:\Users\Vova\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
+.\objects\my_exti.o: main.h
+.\objects\my_exti.o: LEDS.h
+.\objects\my_exti.o: MY_EXTI.h
+.\objects\my_exti.o: ADC.h
+.\objects\my_exti.o: TIM.h
+.\objects\my_exti.o: main.h
