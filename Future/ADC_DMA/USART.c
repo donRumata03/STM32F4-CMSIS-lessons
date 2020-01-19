@@ -1,0 +1,75 @@
+#include "USART.h"
+
+void USART_ini(){
+	// USART1
+	RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	
+	GPIOA->MODER |= GPIO_MODER_MODER9_1; // Port PA9 must be in AF mode
+	GPIOA->OSPEEDR |= GPIO_OSPEEDR_OSPEED9_1; // Speed is 50 Mhz
+	GPIOA->PUPDR |= GPIO_PUPDR_PUPD9_0; // Pull-up
+	GPIOA->AFR[1] |= GPIO_AFRH_AFSEL9_0 | GPIO_AFRH_AFSEL9_1 | GPIO_AFRH_AFSEL9_2;
+	
+	USART1->BRR = (260 << 4) | 7;
+	USART1->CR1 |= USART_CR1_TXEIE;
+	
+	USART1->CR1 |= USART_CR1_UE | USART_CR1_TE | USART_CR1_RE;
+}
+
+
+void USART_send(char i){
+	USART2->DR = i;
+}
+
+
+void USART_CMSIS_ini(){
+	// Enable tacts of GPIOA and USART2
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
+	
+	// Init pins PA2 and PA3 as AF
+	GPIOA->MODER |= GPIO_MODER_MODER2_1;
+	GPIOA->MODER |= GPIO_MODER_MODER3_1;
+	
+	// Speed = HIGH (50 MHz)
+	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR2_1;
+	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR3_1;
+	
+	// OTYPE is Push-Pull
+	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_2;
+	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_3;
+	
+	// Enable pulling up
+	GPIOA->PUPDR |= GPIO_PUPDR_PUPDR2_0;
+	GPIOA->PUPDR |= GPIO_PUPDR_PUPDR3_0;
+	
+	
+	// PA2 AF7 is USART2_TX
+	// PA3 AF7 is USART2_RX
+	
+	
+	
+	GPIOA->AFR[0] |= (1 << 8) | (1 << 9) | (1 << 10);
+	GPIOA->AFR[0] |= (1 << 12) | (1 << 13) | (1 << 14);
+	
+	
+	
+	
+	
+	// Clock = 10 MHz
+	
+	// Required: 9600
+	// FullDivider = 10 000 000 / 9600 = 1041,6666666...
+	// USART_Div = 1041,66666/16 = 65,104166666...
+	// Mantissa = 65
+	// Fract = 16 * 104166666... = 1.66666... ˜˜It is nearly = 2
+	USART2->BRR = (65 << 4) | 2; // 0x412
+	// USART_Mode in CR1:
+	USART2->CR1 |= USART_CR1_TE;
+	USART2->CR1 |= USART_CR1_RE;
+	USART2->CR1 |= USART_CR1_UE;
+	
+	
+	
+}
+
