@@ -1,0 +1,4 @@
+Max Frequency: 168 MHz
+
+Flash Memory size: 1024 kBytes
+Random Access memory size: 192kBytes
